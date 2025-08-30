@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Server.Protos";
+
+import "google/protobuf/empty.proto";
+
+package ConcurrencyStreaming;
+
+message StreamResponse {
+    double moneyValue = 1;
+    string currency = 2;
+    string timestamp = 3;
+}
+
+service ConcurrencyStreamer {
+    rpc Stream (google.protobuf.Empty) returns (stream StreamResponse);
+}
